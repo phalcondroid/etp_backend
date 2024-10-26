@@ -6,6 +6,8 @@ import { LogoutController } from './controllers/logout.controller';
 import { LoginController } from './controllers/login.controller';
 import { LoginService } from './services/login.service';
 import { LogoutService } from './services/logout.service';
+import { OrganizationManager } from 'src/organization/organization.manager';
+import { OrganizationModule } from 'src/organization/organization.module';
 
 @Module({
   imports: [
@@ -15,8 +17,12 @@ import { LogoutService } from './services/logout.service';
       secret: jwtConstants.secret,
       signOptions: { expiresIn: '60s' },
     }),
+    OrganizationModule
   ],
   controllers: [LogoutController, LoginController],
-  providers: [LoginService, LogoutService],
+  providers: [
+    LoginService,
+    LogoutService
+  ],
 })
 export class AuthModule { }

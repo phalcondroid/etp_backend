@@ -1,8 +1,8 @@
 import { Model } from "sequelize";
-import { AutoIncrement, Column, PrimaryKey, Table } from "sequelize-typescript";
+import { AutoIncrement, Column, ForeignKey, PrimaryKey, Table } from "sequelize-typescript";
 import { Organization } from "./organization.model";
 
-@Table({ underscored: true })
+@Table({ underscored: true, modelName: "stations" })
 export class Station extends Model {
 
   @PrimaryKey
@@ -14,9 +14,10 @@ export class Station extends Model {
   name: string;
 
   @Column({
-    field: "organization_id"
+    field: "organization_id",
   })
-  organizationId: Organization;
+  @ForeignKey(() => Organization)
+  organizationId: number;
 
   @Column
   lat: number;

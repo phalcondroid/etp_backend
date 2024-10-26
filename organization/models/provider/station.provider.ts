@@ -1,6 +1,6 @@
 import { Station } from "../station.model";
 
-export const organizationProviders = [
+export const stationProviders = [
   {
     provide: 'STATION_REPOSITORY',
     useValue: Station,

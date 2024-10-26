@@ -1,4 +1,9 @@
 import { Module } from '@nestjs/common';
+import { trafficlightProviders } from './models/providers/trafficlight.provider';
 
-@Module({})
-export class TrafficlightModule {}
+@Module({
+  providers: [
+    ...trafficlightProviders
+  ]
+})
+export class TrafficlightModule { }

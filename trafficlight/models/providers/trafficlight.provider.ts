@@ -1,6 +1,6 @@
 import { Trafficlight } from "../trafficlight.model";
 
-export const organizationProviders = [
+export const trafficlightProviders = [
   {
     provide: 'TRAFFICLIGHT_REPOSITORY',
     useValue: Trafficlight,

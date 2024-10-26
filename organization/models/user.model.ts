@@ -1,6 +1,7 @@
-import { Table, Column, Model, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+import { Table, Column, Model, PrimaryKey, AutoIncrement, ForeignKey } from 'sequelize-typescript';
+import { Organization } from './organization.model';
 
-@Table({ underscored: true })
+@Table({ underscored: true, modelName: "users" })
 export class User extends Model {
 
   @PrimaryKey
@@ -19,6 +20,18 @@ export class User extends Model {
 
   @Column
   status: number;
+
+  @Column({
+    field: "organization_id"
+  })
+  @ForeignKey(() => Organization)
+  organizationId: number;
+
+  @Column
+  usr: string;
+
+  @Column
+  password: string;
 
   @Column
   createdAt: Date;

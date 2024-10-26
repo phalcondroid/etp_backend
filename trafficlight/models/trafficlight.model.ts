@@ -1,6 +1,6 @@
 import { Table, Column, Model, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
 
-@Table({ underscored: true })
+@Table({ underscored: true, modelName: "trafficlights" })
 export class Trafficlight extends Model {
 
   @PrimaryKey

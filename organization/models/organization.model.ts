@@ -1,11 +1,13 @@
 import { Table, Column, Model, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
 
-@Table({ underscored: true })
+@Table({ underscored: true, modelName: "organizations" })
 export class Organization extends Model {
 
   @PrimaryKey
   @AutoIncrement
-  @Column
+  @Column({
+    field: "id"
+  })
   public id: number;
 
   @Column
@@ -25,4 +27,5 @@ export class Organization extends Model {
 
   @Column
   updatedAt: Date;
+
 }
